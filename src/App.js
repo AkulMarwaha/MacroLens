@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 import Onboarding from './pages/Onboarding'
 import Home from './pages/Home'
+import Profile from './pages/Profile'
+import Workout from './pages/Workout'
 
 function App() {
   const [onboardingComplete, setOnboardingComplete] = useState(false)
@@ -26,6 +28,8 @@ function App() {
             }
           />
           <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/workout" element={<Workout />} />
         </Routes>
       </div>
     </Router>

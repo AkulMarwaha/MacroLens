@@ -9,6 +9,8 @@ import Onboarding from './pages/Onboarding'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Workout from './pages/Workout'
+import Progress from './pages/Progress'
+import CheckIn from './pages/CheckIn'
 
 function App() {
   const [onboardingComplete, setOnboardingComplete] = useState(false)
@@ -30,6 +32,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/workout" element={<Workout />} />
+          <Route path="/progress" element={<Progress />} />
+          <Route path="/checkin" element={<CheckIn />} />
         </Routes>
       </div>
     </Router>

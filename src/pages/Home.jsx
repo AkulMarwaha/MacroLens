@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Home() {
   const navigate = useNavigate()
   const [activeNav, setActiveNav] = useState('home')
+  const [showCheckInBanner] = useState(true)
   const [showLogOptions, setShowLogOptions] = useState(false)
   const [showManualEntry, setShowManualEntry] = useState(false)
   const [manualForm, setManualForm] = useState({
@@ -126,6 +127,29 @@ function Home() {
           </div>
         </div>
       </div>
+
+      {/* Check-in banner */}
+      {showCheckInBanner && (
+        <div className="mx-4 mb-4 bg-[#FFF3EE] border border-[#F5C4B3] rounded-2xl p-4 flex items-center gap-3">
+          <div className="w-9 h-9 bg-[#D85A30] rounded-xl flex items-center justify-center flex-shrink-0">
+            <span className="text-white text-lg">📅</span>
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-medium text-[#712B13]">
+              Bi-weekly check-in due
+            </p>
+            <p className="text-xs text-[#993C1D] mt-0.5">
+              Today · Takes about 2 minutes
+            </p>
+          </div>
+          <button
+            onClick={() => navigate('/checkin')}
+            className="bg-[#D85A30] text-white rounded-xl px-3 py-2 text-xs font-medium flex-shrink-0"
+          >
+            Start
+          </button>
+        </div>
+      )}
 
       {/* Graph card */}
       <div className="mx-4 mb-3 bg-white rounded-2xl border border-[#f0ede8] p-4">
@@ -340,7 +364,6 @@ function Home() {
             <p className="text-sm text-[#555] mb-6">
               Enter the nutrition info for your food.
             </p>
-
             <div className="flex flex-col gap-4">
               <div>
                 <p className="text-xs text-[#555] mb-1.5">Food name</p>
@@ -447,7 +470,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
             <button
               onClick={handleManualSubmit}
               disabled={!manualForm.foodName || !manualForm.calories}
